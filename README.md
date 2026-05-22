@@ -2,7 +2,7 @@
 
 A professional static website built with [Astro](https://astro.build), deployable for free on **GitHub Pages**.
 
-## 🌐 Live Preview
+## 🌐 Live Preview 
 
 After deployment, your site will be live at:
 `https://YOUR_GITHUB_USERNAME.github.io`
