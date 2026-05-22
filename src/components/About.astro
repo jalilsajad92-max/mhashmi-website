@@ -1,4 +1,5 @@
 ---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section class="about" id="about">
@@ -8,7 +9,7 @@
     <div class="about-photo-col">
       <div class="photo-frame">
         <div class="photo-placeholder" id="photo-area">
-          <img src="/mhashimi-website/muheeb.jpg" alt="Muheeb Hashimi — Accounting & Tax Services, Montréal" />
+          <img src={`${base}/muheeb.jpg`} alt="Muheeb Hashimi — Accounting & Tax Services, Montréal" />
         </div>
         <div class="photo-accent-line"></div>
         <div class="photo-corner tl"></div>
