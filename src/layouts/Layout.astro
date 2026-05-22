@@ -1,0 +1,148 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Muheeb Hashimi | Accounting & Tax Services – Montréal',
+  description = 'Professional accounting and tax declaration services in Montréal, QC. Personal and corporate tax returns, bookkeeping, financial consulting. Contact Muheeb Hashimi today.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Muheeb Hashimi" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --navy: #0d1b2a;
+    --navy-mid: #162436;
+    --gold: #c6973f;
+    --gold-light: #ddb96a;
+    --cream: #f7f4ee;
+    --warm-gray: #e8e3d9;
+    --text-dark: #1a1a1a;
+    --text-mid: #4a4a4a;
+    --text-light: #7a7a7a;
+    --white: #ffffff;
+
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Jost', sans-serif;
+
+    --max-w: 1200px;
+    --section-pad: 100px 24px;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    font-weight: 300;
+    color: var(--text-dark);
+    background: var(--cream);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  ::selection {
+    background: var(--gold);
+    color: var(--white);
+  }
+
+  /* Fade-in animation */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up {
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 0;
+  }
+
+  .fade-up-1 { animation-delay: 0.1s; }
+  .fade-up-2 { animation-delay: 0.25s; }
+  .fade-up-3 { animation-delay: 0.4s; }
+  .fade-up-4 { animation-delay: 0.55s; }
+  .fade-up-5 { animation-delay: 0.7s; }
+
+  /* Divider ornament */
+  .ornament {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .ornament span {
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .ornament-text {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* Section heading style */
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--navy);
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+</style>

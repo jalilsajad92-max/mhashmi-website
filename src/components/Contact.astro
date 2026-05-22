@@ -1,0 +1,355 @@
+---
+// Replace YOUR_FORMSPREE_ID below with your actual Formspree form ID
+// Get one free at https://formspree.io — takes 2 minutes
+const FORMSPREE_ID = 'meedknog';
+---
+
+<section class="contact" id="contact">
+  <div class="container contact-inner">
+
+    <div class="contact-info">
+      <div class="ornament">
+        <span></span>
+        <span class="ornament-text">Let's Talk</span>
+      </div>
+
+      <h2 class="section-title">
+        Ready to get<br />
+        <em>started?</em>
+      </h2>
+
+      <p class="contact-body">
+        Send me a message and I'll get back to you within one business day. 
+        Consultations are available in person in Montréal, or virtually 
+        anywhere in Canada.
+      </p>
+
+      <div class="contact-details">
+        <div class="contact-detail">
+          <span class="detail-label">Location</span>
+          <span class="detail-value">Montréal, Québec, Canada</span>
+        </div>
+        <div class="contact-detail">
+          <span class="detail-label">Languages</span>
+          <span class="detail-value">English · Français</span>
+        </div>
+        <div class="contact-detail">
+          <span class="detail-label">Response</span>
+          <span class="detail-value">Within 1 business day</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-wrap">
+      <form
+        id="contact-form"
+        action={`https://formspree.io/f/${FORMSPREE_ID}`}
+        method="POST"
+        class="contact-form"
+        novalidate
+      >
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required placeholder="Jane Doe" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required placeholder="jane@example.com" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone (optional)</label>
+          <input type="tel" id="phone" name="phone" placeholder="+1 (514) 000-0000" />
+        </div>
+
+        <div class="form-group">
+          <label for="service">Service Needed</label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Select a service…</option>
+            <option>Personal Tax Return (T1)</option>
+            <option>Corporate Tax Return (T2)</option>
+            <option>Bookkeeping</option>
+            <option>GST / HST / QST Filing</option>
+            <option>Financial Consulting</option>
+            <option>CRA Correspondence</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            required
+            placeholder="Tell me a bit about your situation and what you need help with…"
+          ></textarea>
+        </div>
+
+        <!-- Honeypot spam field -->
+        <input type="text" name="_gotcha" style="display:none" />
+
+        <button type="submit" class="form-submit" id="submit-btn">
+          <span id="btn-text">Send Message</span>
+          <span id="btn-loading" style="display:none">Sending…</span>
+        </button>
+
+        <div class="form-success" id="form-success" style="display:none">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Thank you! I'll be in touch within one business day.
+        </div>
+
+        <div class="form-error" id="form-error" style="display:none">
+          Something went wrong. Please try again or email me directly.
+        </div>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .contact {
+    padding: var(--section-pad);
+    background: var(--cream);
+  }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  /* Info column */
+  .contact-body {
+    font-size: 0.975rem;
+    color: var(--text-mid);
+    line-height: 1.85;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-top: 1px solid var(--warm-gray);
+    padding-top: 32px;
+  }
+
+  .contact-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .detail-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .detail-value {
+    font-size: 0.95rem;
+    color: var(--navy);
+    font-weight: 400;
+  }
+
+  /* Form */
+  .contact-form-wrap {
+    background: var(--white);
+    padding: 48px 44px;
+    border: 1px solid var(--warm-gray);
+    position: relative;
+  }
+
+  .contact-form-wrap::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--gold), var(--gold-light));
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-group label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--text-dark);
+    background: var(--cream);
+    border: 1px solid var(--warm-gray);
+    padding: 12px 16px;
+    outline: none;
+    transition: border-color 0.25s ease;
+    width: 100%;
+    -webkit-appearance: none;
+  }
+
+  .form-group select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234a4a4a' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+    background: var(--white);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .form-submit {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: var(--navy);
+    color: var(--cream);
+    border: none;
+    padding: 16px 32px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-top: 8px;
+  }
+
+  .form-submit:hover {
+    background: var(--gold);
+    color: var(--navy);
+    transform: translateY(-1px);
+  }
+
+  .form-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .form-success {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px;
+    background: #f0faf4;
+    border: 1px solid #a8d5b5;
+    color: #2d7a4f;
+    font-size: 0.875rem;
+  }
+
+  .form-success svg {
+    width: 18px;
+    height: 18px;
+    stroke: #2d7a4f;
+    flex-shrink: 0;
+  }
+
+  .form-error {
+    padding: 16px;
+    background: #fdf0f0;
+    border: 1px solid #e8a8a8;
+    color: #b94545;
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 860px) {
+    .contact-inner {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .form-row { grid-template-columns: 1fr; }
+    .contact-form-wrap { padding: 32px 24px; }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const btnText = document.getElementById('btn-text');
+  const btnLoading = document.getElementById('btn-loading');
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const successEl = document.getElementById('form-success');
+  const errorEl   = document.getElementById('form-error');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Bail if no Formspree ID set yet
+    if (form.action.includes('YOUR_FORMSPREE_ID')) {
+      alert('⚠️ Please set up Formspree first! See the README for instructions.');
+      return;
+    }
+
+    btnText!.style.display = 'none';
+    btnLoading!.style.display = 'inline';
+    submitBtn.disabled = true;
+    successEl!.style.display = 'none';
+    errorEl!.style.display   = 'none';
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+
+      if (res.ok) {
+        form.reset();
+        successEl!.style.display = 'flex';
+      } else {
+        errorEl!.style.display = 'block';
+      }
+    } catch {
+      errorEl!.style.display = 'block';
+    } finally {
+      btnText!.style.display = 'inline';
+      btnLoading!.style.display = 'none';
+      submitBtn.disabled = false;
+    }
+  });
+</script>

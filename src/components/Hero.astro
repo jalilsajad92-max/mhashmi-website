@@ -1,0 +1,243 @@
+---
+---
+
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+  </div>
+
+  <div class="container hero-inner">
+    <div class="hero-eyebrow fade-up fade-up-1">
+      <div class="ornament">
+        <span></span>
+        <span class="ornament-text">Accounting &amp; Tax Services · Montréal</span>
+        <span></span>
+      </div>
+    </div>
+
+    <h1 class="hero-title fade-up fade-up-2">
+      Financial clarity<br />
+      <em>you can trust.</em>
+    </h1>
+
+    <p class="hero-sub fade-up fade-up-3">
+      Professional accounting, personal &amp; corporate tax declarations,<br class="break" />
+      and strategic financial guidance for individuals and businesses<br class="break" />
+      across Québec and Canada.
+    </p>
+
+    <div class="hero-actions fade-up fade-up-4">
+      <a href="#contact" class="btn btn-primary">Book a Consultation</a>
+      <a href="#services" class="btn btn-ghost">View Services</a>
+    </div>
+
+    <div class="hero-stats fade-up fade-up-5">
+      <div class="stat">
+        <span class="stat-num">100%</span>
+        <span class="stat-label">Dedicated service</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num">FR / EN</span>
+        <span class="stat-label">Bilingual support</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num">CRA</span>
+        <span class="stat-label">Certified &amp; compliant</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: var(--navy);
+    overflow: hidden;
+    padding-top: 72px;
+  }
+
+  /* Decorative background */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(198, 151, 63, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(198, 151, 63, 0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 70%);
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(198, 151, 63, 0.12) 0%, transparent 65%);
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    padding-top: 60px;
+    padding-bottom: 120px;
+  }
+
+  .hero-eyebrow .ornament {
+    justify-content: flex-start;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    font-weight: 300;
+    line-height: 1.08;
+    color: var(--cream);
+    margin-bottom: 28px;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    font-weight: 300;
+    color: rgba(247, 244, 238, 0.6);
+    line-height: 1.8;
+    margin-bottom: 48px;
+    max-width: 580px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 72px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 32px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(198, 151, 63, 0.35);
+  }
+
+  .btn-ghost {
+    border: 1px solid rgba(247, 244, 238, 0.25);
+    color: var(--cream);
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    font-weight: 400;
+    color: var(--cream);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(247, 244, 238, 0.45);
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(198, 151, 63, 0.3);
+  }
+
+  .hero-scroll-indicator {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: rgba(247, 244, 238, 0.35);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, rgba(198, 151, 63, 0.6), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50%       { opacity: 1;   transform: scaleY(1.15); }
+  }
+
+  .break { display: none; }
+
+  @media (min-width: 640px) {
+    .break { display: inline; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-stats { gap: 24px; }
+    .stat-divider { display: none; }
+  }
+</style>

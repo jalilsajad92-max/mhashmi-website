@@ -1,0 +1,212 @@
+---
+const services = [
+  {
+    icon: '01',
+    title: 'Personal Tax Returns',
+    fr: 'Déclarations T1',
+    desc: 'Accurate and optimized T1 personal income tax returns for individuals, families, self-employed, and newcomers to Canada — maximizing every eligible deduction.',
+  },
+  {
+    icon: '02',
+    title: 'Corporate Tax Returns',
+    fr: 'Déclarations T2',
+    desc: 'Full T2 corporate tax preparation for small and medium businesses operating in Québec and across Canada, including HST/GST/QST filings.',
+  },
+  {
+    icon: '03',
+    title: 'Bookkeeping',
+    fr: 'Tenue de livres',
+    desc: 'Monthly and quarterly bookkeeping services keeping your financial records clean, compliant, and ready for tax season. We support QuickBooks and more.',
+  },
+  {
+    icon: '04',
+    title: 'GST / HST / QST',
+    fr: 'TPS / TVH / TVQ',
+    desc: 'Registration, filing, and remittance of federal and provincial sales taxes. Avoid penalties with timely, accurate returns filed on your behalf.',
+  },
+  {
+    icon: '05',
+    title: 'Financial Consulting',
+    fr: 'Consultation financière',
+    desc: 'Strategic advice on tax planning, incorporation, retirement savings, and financial structure — helping you make informed decisions year-round.',
+  },
+  {
+    icon: '06',
+    title: 'CRA Correspondence',
+    fr: 'Représentation CRA',
+    desc: 'Handling CRA audit support, reassessments, adjustments, and dispute resolution. We respond on your behalf and protect your interests.',
+  },
+];
+---
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-header">
+      <div class="ornament">
+        <span></span>
+        <span class="ornament-text">What I Offer</span>
+      </div>
+      <h2 class="section-title">
+        Services tailored<br />
+        <em>to your needs.</em>
+      </h2>
+      <p class="services-intro">
+        Whether you're an individual filing your first return or a growing business navigating 
+        Québec's complex tax landscape — I provide clear, professional, and personalized guidance.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      {services.map((s, i) => (
+        <article class="service-card">
+          <div class="card-top">
+            <span class="card-num">{s.icon}</span>
+            <div class="card-titles">
+              <h3 class="card-title">{s.title}</h3>
+              <span class="card-fr">{s.fr}</span>
+            </div>
+          </div>
+          <p class="card-desc">{s.desc}</p>
+          <a href="#contact" class="card-link">
+            Enquire <span>→</span>
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    padding: var(--section-pad);
+    background: var(--cream);
+  }
+
+  .services-header {
+    max-width: 580px;
+    margin-bottom: 64px;
+  }
+
+  .services-intro {
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    margin-top: 20px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--warm-gray);
+    border: 1px solid var(--warm-gray);
+  }
+
+  .service-card {
+    background: var(--cream);
+    padding: 40px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: background 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+
+  .service-card:hover {
+    background: var(--white);
+  }
+
+  .service-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .card-num {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    padding-top: 3px;
+    min-width: 24px;
+  }
+
+  .card-titles {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .card-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+
+  .card-fr {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .card-desc {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    flex: 1;
+  }
+
+  .card-link {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.25s ease;
+    margin-top: 8px;
+  }
+
+  .card-link:hover { color: var(--gold); }
+
+  .card-link span {
+    display: inline-block;
+    transition: transform 0.25s ease;
+  }
+
+  .card-link:hover span { transform: translateX(4px); }
+
+  @media (max-width: 960px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 600px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card { padding: 32px 24px; }
+  }
+</style>

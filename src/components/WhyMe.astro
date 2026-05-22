@@ -1,0 +1,152 @@
+---
+const reasons = [
+  {
+    icon: `<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="1.5"/><path d="M10 16l4 4 8-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    title: 'CRA-Compliant Filing',
+    desc: 'Every return filed accurately and on time. I stay current with the latest CRA and Revenu Québec regulations so you never miss a credit or deadline.',
+  },
+  {
+    icon: `<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="8" width="24" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M4 13h24" stroke="currentColor" stroke-width="1.5"/><path d="M10 19h4M18 19h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+    title: 'Maximum Refunds',
+    desc: 'I identify every eligible deduction and credit specific to your situation — from RRSP and FHSA to self-employment expenses and rental income.',
+  },
+  {
+    icon: `<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 4L28 10v8c0 6-5 10-12 14C9 28 4 24 4 18v-8l12-6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
+    title: 'Transparent & Honest',
+    desc: 'Flat, upfront pricing with no hidden fees. You'll always know what you're paying before we begin — and exactly what you're getting in return.',
+  },
+  {
+    icon: `<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 4a8 8 0 100 16A8 8 0 0016 4z" stroke="currentColor" stroke-width="1.5"/><path d="M16 20v8M10 26h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+    title: 'Bilingual Service',
+    desc: 'Fully bilingual in English and French. Whether you prefer to communicate en français or in English, you'll always feel understood.',
+  },
+  {
+    icon: `<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="6" width="20" height="20" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M11 16h10M11 11h10M11 21h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+    title: 'Personal Attention',
+    desc: 'You work directly with me — not passed off to a junior staff member. I know your file, your history, and your goals.',
+  },
+  {
+    icon: `<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M6 28c0-5.523 4.477-10 10-10s10 4.477 10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+    title: 'Year-Round Support',
+    desc: 'Tax season or not — I'm available year-round to answer questions, review major financial decisions, and help you plan ahead.',
+  },
+];
+---
+
+<section class="why">
+  <div class="container">
+    <div class="why-header">
+      <div class="ornament">
+        <span></span>
+        <span class="ornament-text">Why Work With Me</span>
+      </div>
+      <h2 class="section-title">
+        The Muheeb Hashimi<br />
+        <em>difference.</em>
+      </h2>
+    </div>
+
+    <div class="why-grid">
+      {reasons.map((r) => (
+        <div class="why-card">
+          <div class="why-icon" set:html={r.icon} />
+          <div>
+            <h3 class="why-title">{r.title}</h3>
+            <p class="why-desc">{r.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="why-cta">
+      <a href="#contact" class="btn-outline">Start with a free consultation →</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .why {
+    padding: var(--section-pad);
+    background: var(--white);
+    border-top: 1px solid var(--warm-gray);
+    border-bottom: 1px solid var(--warm-gray);
+  }
+
+  .why-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .why-header .ornament {
+    justify-content: center;
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 48px;
+  }
+
+  .why-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .why-icon {
+    width: 40px;
+    height: 40px;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .why-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .why-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .why-desc {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+  }
+
+  .why-cta {
+    text-align: center;
+    margin-top: 56px;
+    padding-top: 48px;
+    border-top: 1px solid var(--warm-gray);
+  }
+
+  .btn-outline {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--navy);
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 4px;
+    transition: color 0.25s ease;
+  }
+
+  .btn-outline:hover {
+    color: var(--gold);
+  }
+
+  @media (max-width: 900px) {
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 560px) {
+    .why-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+</style>

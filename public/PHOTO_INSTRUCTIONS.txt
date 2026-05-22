@@ -1,0 +1,11 @@
+Place your professional photo here as:  muheeb.jpg
+
+Then update src/components/About.astro — find the comment block and replace the placeholder div with:
+
+  <img src="/muheeb.jpg" alt="Muheeb Hashimi" />
+
+Recommended photo specs:
+- Portrait orientation (3:4 ratio works best)
+- Minimum 600×800 px
+- Professional headshot or half-body shot
+- JPEG format, optimized for web (< 500 KB)

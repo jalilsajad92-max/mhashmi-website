@@ -1,0 +1,227 @@
+---
+---
+
+<section class="about" id="about">
+  <div class="container about-inner">
+
+    <!-- Photo column -->
+    <div class="about-photo-col">
+      <div class="photo-frame">
+        <div class="photo-placeholder" id="photo-area">
+          <img src="/muheeb.jpg" alt="Muheeb Hashimi — Accounting & Tax Services, Montréal" />
+        </div>
+        <div class="photo-accent-line"></div>
+        <div class="photo-corner tl"></div>
+        <div class="photo-corner br"></div>
+      </div>
+    </div>
+
+    <!-- Text column -->
+    <div class="about-text-col">
+      <div class="ornament">
+        <span></span>
+        <span class="ornament-text">About Me</span>
+      </div>
+
+      <h2 class="section-title">
+        Meet <em>Muheeb</em><br />
+        Hashimi.
+      </h2>
+
+      <p class="about-body">
+        I'm a Montréal-based accounting professional dedicated to helping individuals and 
+        businesses take control of their finances. With deep knowledge of both federal 
+        and Québec provincial tax law, I provide clear, reliable, and personalized service 
+        that you can count on every year.
+      </p>
+
+      <p class="about-body">
+        My approach is simple: I listen to your situation, explain your options in plain 
+        language, and file your returns accurately — while identifying every legal opportunity 
+        to reduce your tax burden. No jargon. No surprises.
+      </p>
+
+      <ul class="about-highlights">
+        <li>
+          <span class="highlight-dot"></span>
+          Based in Montréal, Québec — serving clients across Canada
+        </li>
+        <li>
+          <span class="highlight-dot"></span>
+          Bilingual service in English and French
+        </li>
+        <li>
+          <span class="highlight-dot"></span>
+          Specializing in personal, self-employed, and small business tax
+        </li>
+        <li>
+          <span class="highlight-dot"></span>
+          CRA-registered tax preparer — fully compliant
+        </li>
+      </ul>
+
+      <a href="#contact" class="btn btn-primary">Work With Me</a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .about {
+    padding: var(--section-pad);
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about::before {
+    content: '';
+    position: absolute;
+    top: -300px;
+    left: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(198, 151, 63, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Photo */
+  .photo-frame {
+    position: relative;
+    max-width: 420px;
+  }
+
+  .photo-placeholder {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--navy-mid);
+    border: 1px solid rgba(198, 151, 63, 0.2);
+    overflow: hidden;
+  }
+
+  .photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .photo-placeholder img:hover {
+    transform: scale(1.03);
+  }
+
+  .photo-accent-line {
+    position: absolute;
+    left: -16px;
+    top: 16px;
+    bottom: -16px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--gold) 0%, transparent 100%);
+  }
+
+  .photo-corner {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-color: var(--gold);
+    border-style: solid;
+  }
+
+  .photo-corner.tl {
+    top: -8px;
+    left: -8px;
+    border-width: 2px 0 0 2px;
+  }
+
+  .photo-corner.br {
+    bottom: -8px;
+    right: -8px;
+    border-width: 0 2px 2px 0;
+  }
+
+  /* Text */
+  .about-text-col .section-title {
+    color: var(--cream);
+    margin-bottom: 28px;
+  }
+
+  .about-text-col .section-title em {
+    color: var(--gold);
+  }
+
+  .about-body {
+    font-size: 0.975rem;
+    color: rgba(247, 244, 238, 0.65);
+    line-height: 1.85;
+    margin-bottom: 20px;
+  }
+
+  .about-highlights {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 32px 0 40px;
+  }
+
+  .about-highlights li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 0.9rem;
+    color: rgba(247, 244, 238, 0.7);
+  }
+
+  .highlight-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 14px 32px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--navy);
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(198, 151, 63, 0.35);
+  }
+
+  @media (max-width: 860px) {
+    .about-inner {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    .about-photo-col {
+      display: flex;
+      justify-content: center;
+    }
+
+    .photo-frame {
+      max-width: 300px;
+      width: 100%;
+    }
+  }
+</style>

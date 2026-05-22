@@ -1,0 +1,179 @@
+---
+---
+
+<header class="nav-wrapper">
+  <nav class="nav container">
+    <a href="#home" class="nav-brand">
+      <span class="brand-name">Muheeb Hashimi</span>
+      <span class="brand-tagline">CPA · Montréal</span>
+    </a>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .nav-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 0;
+    transition: background 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .nav-wrapper.scrolled {
+    background: rgba(13, 27, 42, 0.97);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 1px 0 rgba(198, 151, 63, 0.2);
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+
+  .nav-brand {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    gap: 3px;
+  }
+
+  .brand-name {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.02em;
+  }
+
+  .brand-tagline {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(247, 244, 238, 0.75);
+    transition: color 0.25s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--gold-light);
+  }
+
+  .nav-cta {
+    background: var(--gold) !important;
+    color: var(--navy) !important;
+    padding: 10px 22px !important;
+    letter-spacing: 0.1em !important;
+    transition: background 0.25s ease !important;
+  }
+
+  .nav-cta:hover {
+    background: var(--gold-light) !important;
+    color: var(--navy) !important;
+  }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--white);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  @media (max-width: 720px) {
+    .nav-toggle { display: flex; }
+
+    .nav-links {
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: var(--navy);
+      flex-direction: column;
+      gap: 0;
+      padding: 16px 0 24px;
+      transform: translateY(-120%);
+      opacity: 0;
+      transition: transform 0.35s ease, opacity 0.35s ease;
+      pointer-events: none;
+    }
+
+    .nav-links.open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .nav-links li {
+      width: 100%;
+      text-align: center;
+    }
+
+    .nav-links a {
+      display: block;
+      padding: 16px 24px;
+      font-size: 13px;
+    }
+
+    .nav-cta {
+      margin: 8px 24px 0 !important;
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  const header = document.querySelector('.nav-wrapper') as HTMLElement;
+  const toggle = document.getElementById('nav-toggle');
+  const links  = document.getElementById('nav-links');
+
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  toggle?.addEventListener('click', () => {
+    links?.classList.toggle('open');
+  });
+
+  links?.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => links.classList.remove('open'));
+  });
+</script>
